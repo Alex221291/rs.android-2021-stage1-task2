@@ -2,8 +2,14 @@ package subtask2
 
 class Abbreviation {
 
-    // TODO: Complete the following function
     fun abbreviationFromA(a: String, b: String): String {
-        throw NotImplementedError("Not implemented")
+
+        var pattern = "${b[0]}"
+        for (i in 1 until  b.length)
+        {
+            pattern = "$pattern.*?${b[i]}"
+        }
+
+        return if (Regex(pattern).containsMatchIn(a.toUpperCase())) "YES" else "NO"
     }
 }
